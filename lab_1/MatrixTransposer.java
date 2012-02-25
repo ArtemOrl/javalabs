@@ -29,9 +29,9 @@ class MatrixTransposer
 			matrix.transpose();
 			matrix.print();
 		}
-		catch(IOException e)
+		catch(Exception e)
 		{
-			System.out.println("IO Exception catched: " + e);
+			System.out.println("Exception catched: " + e + "\nAborting programm...");
 		}
 	}
 }
