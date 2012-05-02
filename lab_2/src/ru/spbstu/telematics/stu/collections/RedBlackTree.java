@@ -1,12 +1,14 @@
 package ru.spbstu.telematics.stu.collections;
 
+import java.util.ArrayList;
+
 /**
  * Класс реализующий красно-черное дерево на основе 
  * интерфейса {@link IRedBlackTree}
  * @author simonenko 
- * @version 1.0
+ * @version 2.0
  */
-public class RedBlackTree implements IRedBlackTree {
+public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 
 	/**
 	 * Перечисление цветов узла дерева.
@@ -25,7 +27,7 @@ public class RedBlackTree implements IRedBlackTree {
 		/**
 		 * Значение узла дерева.
 		 */
-		private Comparable _value;
+		private T _value;
 		/**
 		 * Цвет узла.
 		 */
@@ -60,7 +62,7 @@ public class RedBlackTree implements IRedBlackTree {
 		 * @param value - значение, которое будет сохранено в узле.
 		 * @param color - цвет узла.
 		 */
-		public Node(Comparable value, NodeColor color) {
+		public Node(T value, NodeColor color) {
 			_value = value;
 			_color = color;
 			_parent = _nil;
@@ -96,11 +98,11 @@ public class RedBlackTree implements IRedBlackTree {
 			return _parent == null || _parent == _nil;
 		}
 		
-		public Comparable getValue() {
+		public T getValue() {
 			return _value;
 		}
 
-		public void setValue(Comparable value) {
+		public void setValue(T value) {
 			_value = value;
 		}
 
@@ -231,9 +233,9 @@ public class RedBlackTree implements IRedBlackTree {
 	 * @param tree - дерево.
 	 * @param node - узел, относительно которого осущетвляется левый поворот.
 	 */
-	private static void leftRotate(RedBlackTree tree, Node node) {
-		Node nodeParent = node.getParent();
-		Node nodeRight = node.getRight();
+	private static <T extends Comparable<T>> void leftRotate(RedBlackTree<T> tree, RedBlackTree<T>.Node node) {
+		RedBlackTree<T>.Node nodeParent = node.getParent();
+		RedBlackTree<T>.Node nodeRight = node.getRight();
 		if(nodeParent != tree._nil) {
 			if(nodeParent.getLeft() == node)
 				nodeParent.setLeft(nodeRight);
@@ -253,9 +255,9 @@ public class RedBlackTree implements IRedBlackTree {
 	 * @param tree - дерево.
 	 * @param node - узел, относительно которого осущетвляется правый поворот.
 	 */
-	private static void rightRotate(RedBlackTree tree, Node node) {
-		Node nodeParent = node.getParent();
-		Node nodeLeft = node.getLeft();
+	private static <T extends Comparable<T>> void rightRotate(RedBlackTree<T> tree, RedBlackTree<T>.Node node) {
+		RedBlackTree<T>.Node nodeParent = node.getParent();
+		RedBlackTree<T>.Node nodeLeft = node.getLeft();
 		if(nodeParent != tree._nil) {
 			if(nodeParent.getLeft() == node)
 				nodeParent.setLeft(nodeLeft);
@@ -274,9 +276,9 @@ public class RedBlackTree implements IRedBlackTree {
 	 * Печать дерева.
 	 * @param tree - дерево.
 	 */
-	public static void printTree(RedBlackTree tree) {
-		Node[] nodes = new Node[1];
-		nodes[0] = tree._root;
+	public static <T extends Comparable<T>> void printTree(RedBlackTree<T> tree) {
+		ArrayList<RedBlackTree<T>.Node> nodes = new ArrayList<RedBlackTree<T>.Node>();
+		nodes.add(0, tree._root);
 		printNodes(tree, nodes);
 	}
 	
@@ -285,22 +287,26 @@ public class RedBlackTree implements IRedBlackTree {
 	 * @param tree - ссылка на дерево.
 	 * @param nodes - список узлов на уровне дерева.
 	 */
-	private static void printNodes(RedBlackTree tree, Node[] nodes) {
+	private static <T extends Comparable<T>> void printNodes(RedBlackTree<T> tree, ArrayList<RedBlackTree<T>.Node> nodes) {
 		int childsCounter = 0;
-		int nodesAmount = nodes.length;
-		Node[] childs = new Node[nodesAmount * 2];
+		int nodesAmount = nodes.size();
+		ArrayList<RedBlackTree<T>.Node> childs = new ArrayList<RedBlackTree<T>.Node>();
 		
 		for(int i = 0; i < nodesAmount; i++) {
-			if(nodes[i] != null && nodes[i] != tree._nil) {
-				System.out.print("(" + nodes[i].getValue().toString() + "," + nodes[i].getColorName() + ")");
-				if(!nodes[i].isLeftFree()) {
-					childs[i * 2] = nodes[i].getLeft();
+			if(nodes.get(i) != null && nodes.get(i) != tree._nil) {
+				System.out.print("(" + nodes.get(i).getValue().toString() + "," + nodes.get(i).getColorName() + ")");
+				if(!nodes.get(i).isLeftFree()) {
+					childs.add(nodes.get(i).getLeft());
 					childsCounter++;
 				}
-				if(!nodes[i].isRightFree()) {
-					childs[i * 2 + 1] = nodes[i].getRight();
+				else
+					childs.add(null);
+				if(!nodes.get(i).isRightFree()) {
+					childs.add(nodes.get(i).getRight());
 					childsCounter++;
 				}
+				else
+					childs.add(null);
 			}
 			else {
 				System.out.print("(nil)");
@@ -318,9 +324,9 @@ public class RedBlackTree implements IRedBlackTree {
 	 * @param o - значение типа {@link Comparable} для вставки в дерево.
 	 */
 	@Override
-	public void add(Comparable o) {
+	public void add(T o) {
 		Node node = _root, temp = _nil;
-		Node newNode = new Node(o, NodeColor.RED);
+		Node newNode = new Node((T)o, NodeColor.RED);
 		while(node != null && node != _nil && !node.isFree()) {
 			temp = node;
 			if(newNode.getValue().compareTo(node.getValue()) < 0)
@@ -396,7 +402,7 @@ public class RedBlackTree implements IRedBlackTree {
 	 * false - если элемента в дереве нет и удаление его невозможно.
 	 */
 	@Override
-	public boolean remove(Comparable o) {
+	public boolean remove(T o) {
 		
 		Node node = findNode(o);
 		Node temp = _nil, successor = _nil;
@@ -503,7 +509,7 @@ public class RedBlackTree implements IRedBlackTree {
 	 * @return true - если элемент найден; false - если элемент не найда.
 	 */
 	@Override
-	public boolean contains(Comparable o) {
+	public boolean contains(T o) {
 		return (findNode(o) != _nil);
 	}
 	
@@ -512,7 +518,7 @@ public class RedBlackTree implements IRedBlackTree {
 	 * @param o - значение типа {@link Comparable} для поиска в дерева.
 	 * @return узел дерева; если не найден - возвращает {@value #_nil}
 	 */
-	private Node findNode(Comparable o) {
+	private Node findNode(T o) {
 		Node node = _root;
 		while(node != null && node != _nil && node.getValue().compareTo(o) != 0) {
 			if(node.getValue().compareTo(o) > 0)
