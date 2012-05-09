@@ -29,8 +29,8 @@ public class RedBlackTreeTest {
 	
 	public static void main(String[] args) {
 		
-		//IRedBlackTree<Character> rbt;
-		IRedBlackTree<Integer> rbt;
+		//RedBlackTree<Character> rbt;
+		RedBlackTree<Integer> rbt;
 		int testInsertElementsAmount;
 		int testContainElementsAmount;
 		int testDeleteElementsAmount;
@@ -79,6 +79,43 @@ public class RedBlackTreeTest {
 				System.out.println("Got error: " + e.getMessage());
 			}
 		}
-		System.out.println("\n\nTesting is over!");
+		System.out.println("\n\nRBT testing is over!");
+		
+		rbt = new RedBlackTree<Integer>();
+		Iterator<Integer> it = rbt.iterator();
+		System.out.println(it.hasNext());
+		
+		rbt.add(new Integer(100));
+		rbt.add(new Integer(200));
+		rbt.add(new Integer(150));
+		rbt.add(new Integer(80));
+		rbt.add(new Integer(264));
+		rbt.add(new Integer(189));
+		rbt.add(new Integer(123));
+		
+		RedBlackTree.printTree(rbt);
+		System.out.println(it.hasNext());
+		Integer number;
+		try {
+			number = it.next();
+			System.out.println(number + ", has next: " + it.hasNext());
+			number = it.next();
+			System.out.println(number + ", has next: " + it.hasNext());
+			number = it.next();
+			System.out.println(number + ", has next: " + it.hasNext());
+			number = it.next();
+			System.out.println(number + ", has next: " + it.hasNext());
+			it.remove();
+			RedBlackTree.printTree(rbt);
+			System.out.println("after remove " + number + ", has next: " + it.hasNext());
+			number = it.next();
+			System.out.println(number + ", has next: " + it.hasNext());
+			it.remove();
+			RedBlackTree.printTree(rbt);
+			System.out.println("after remove " + number + ", has next: " + it.hasNext());
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

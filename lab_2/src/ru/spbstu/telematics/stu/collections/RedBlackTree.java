@@ -1,6 +1,8 @@
 package ru.spbstu.telematics.stu.collections;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
 
 /**
  * Класс реализующий красно-черное дерево на основе 
@@ -8,7 +10,7 @@ import java.util.ArrayList;
  * @author simonenko 
  * @version 2.0
  */
-public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
+public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T>, Iterable<T>, Iterator<T> {
 
 	/**
 	 * Перечисление цветов узла дерева.
@@ -181,7 +183,7 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 		}
 		
 		/**
-		 * Возвращает предшествующий по значению узел дерева.
+		 * Возвращает следующий по значению узел дерева.
 		 */
 		public Node getSuccessor()
 		{
@@ -194,7 +196,7 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 				return temp;
 			}
 			temp = node.getParent();
-			while(temp != _nil && node == temp.getLeft()) {
+			while(temp != _nil && node == temp.getRight()) {
 				node = temp;
 				temp = temp.getParent();
 			}
@@ -215,6 +217,17 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 	 * Ограничитель, который обозначает нулевую ссылку.
 	 */
 	private Node _nil;
+	
+	/**
+	 * Ссылка на элемент на который указывает итератор.
+	 */
+	private Node _current;
+	
+	/**
+	 * Флаг удаления элемента через итератор, необходимый для того, чтобы
+	 * корректно работали {@link Iterator#hasNext()} и {@link Iterator#next()}
+	 */
+	private boolean _isRemoved;
 	
 	/**
 	 * Конструктор по-умолчанию.
@@ -403,18 +416,24 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 	 */
 	@Override
 	public boolean remove(T o) {
-		
-		Node node = findNode(o);
+		return remove(findNode(o));
+	}
+	
+	/**
+	 * 
+	 */
+	private boolean remove(Node node)
+	{
 		Node temp = _nil, successor = _nil;
-		
+
 		if(node == null || node == _nil) 
 			return false;
-		
+
 		if(node.isLeftFree() || node.isRightFree())
 			successor = node;
 		else
 			successor = node.getSuccessor();
-		
+
 		if(!successor.isLeftFree())
 			temp = successor.getLeft();
 		else
@@ -427,13 +446,12 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 			successor.getParent().setLeft(temp);
 		else
 			successor.getParent().setRight(temp);
-		
+
 		if(successor != node) {
 			node.setValue(successor.getValue());
 		}
 		if(successor.isBlack())
 			fixRemove(temp);
-		
 		return true;
 	}
 	
@@ -527,5 +545,61 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T> {
 				node = node.getRight();
 		}
 		return node;
+	}
+
+	private Node first()
+	{
+		Node node = _root;
+		while(node.getLeft() != null && node.getLeft() != _nil) {
+			if(!node.isLeftFree()) 
+				node = node.getLeft();
+		}
+		return node;
+	}
+	
+	@Override
+	public Iterator<T> iterator() {
+		_current = null;
+		return this;
+	}
+
+	@Override
+	public boolean hasNext() {
+		if(_current != null) {
+			if(!_isRemoved) {
+				RedBlackTree<T>.Node node = _current.getSuccessor();
+				return (node != null && node != _nil);
+			}
+			return (_current != null && _current != _nil);
+		}
+		else {
+			return (_root != null && !_root.isFree());
+		}
+	}
+
+	@Override
+	public T next() {
+		if(_current != null) {
+			if(!_isRemoved)
+				_current = _current.getSuccessor();
+			else
+				_isRemoved = false;
+		}
+		else {
+			_current = first();
+		}
+		if(_current == null || _current == _nil)
+			throw new NoSuchElementException();
+		return _current.getValue();
+	}
+
+	@Override
+	public void remove() {
+		if(_current != null && !_isRemoved) {
+			remove(_current);
+			_isRemoved = true;
+		}
+		else
+			throw new IllegalStateException();
 	}
 }
