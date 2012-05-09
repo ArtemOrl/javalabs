@@ -79,7 +79,7 @@ public class RedBlackTreeTest {
 				System.out.println("Got error: " + e.getMessage());
 			}
 		}
-		System.out.println("\n\nRBT testing is over!");
+		System.out.println("\nRBT testing is over!\n\n");
 		
 		rbt = new RedBlackTree<Integer>();
 		Iterator<Integer> it = rbt.iterator();
@@ -113,9 +113,15 @@ public class RedBlackTreeTest {
 			it.remove();
 			RedBlackTree.printTree(rbt);
 			System.out.println("after remove " + number + ", has next: " + it.hasNext());
+			System.out.println("tree elements:");
+			it = rbt.iterator();
+			while(it.hasNext()) {
+				System.out.print(it.next() + " ");
+			}
 		}
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+		System.out.println("\n\nRBT.iterator testing is over!\n\n");
 	}
 }

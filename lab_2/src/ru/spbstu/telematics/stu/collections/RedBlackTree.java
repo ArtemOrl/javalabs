@@ -239,6 +239,7 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T>, 
 		_root._parent = _nil;
 		_root._right = _nil;
 		_root._left = _nil;
+		_isRemoved = false;
 	}
 	
 	/**
@@ -547,6 +548,10 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T>, 
 		return node;
 	}
 
+	/**
+	 * Метод для получения первого(наименьшего) элемента структуры.
+	 * @return наименьший элемент дерева
+	 */
 	private Node first()
 	{
 		Node node = _root;
@@ -560,6 +565,7 @@ public class RedBlackTree<T extends Comparable<T>> implements IRedBlackTree<T>, 
 	@Override
 	public Iterator<T> iterator() {
 		_current = null;
+		_isRemoved = false;
 		return this;
 	}
 
