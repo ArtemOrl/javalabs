@@ -38,7 +38,7 @@ public class Radio implements IRadio, Runnable {
 	private RadioInterface _interface;
 	private int _frequency;
 	private Object _mutex;
-	private State _state;
+	private volatile State _state;
 
 	public Radio()
 	{
@@ -124,9 +124,9 @@ public class Radio implements IRadio, Runnable {
 	public void on() {
 		if(_state == State.OFF)
 		{
-			_state = State.ON;
-			_frequency = HIGH_FREQUENCY;
 			synchronized (_mutex) {
+				_state = State.ON;
+				_frequency = HIGH_FREQUENCY;
 				_mutex.notify();
 			}
 		}
@@ -180,9 +180,9 @@ public class Radio implements IRadio, Runnable {
 		   _state == State.LOCK ||
 		   _state == State.END) {
 			_state = State.ON;
-			_frequency = HIGH_FREQUENCY;
-			_interface.message("Reset frequency pointer");
 			synchronized (_mutex) {
+				_frequency = HIGH_FREQUENCY;
+				_interface.message("Reset frequency pointer");
 				_mutex.notify();
 			}
 		}
@@ -196,8 +196,8 @@ public class Radio implements IRadio, Runnable {
 	private void lock() {
 		if(_state == State.SCAN)
 		{
-			_state = State.LOCK;
 			synchronized (_mutex) {
+				_state = State.LOCK;
 				try {
 					_mutex.wait();
 				} catch (InterruptedException e) {
@@ -214,8 +214,8 @@ public class Radio implements IRadio, Runnable {
 	 */
 	private void end() {
 		if(_state == State.SCAN) {
-			_state = State.END;
 			synchronized (_mutex) {
+				_state = State.END;
 				try {
 					_mutex.wait();
 				} catch (InterruptedException e) {
