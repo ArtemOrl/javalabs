@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<clientConfig>
+    <serverAddress>localhost</serverAddress>
+    <serverPort>65534</serverPort>
+    <selfPort>30002</selfPort>
+</clientConfig>

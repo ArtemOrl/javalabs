@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<serverConfig>
+    <serverAddress>localhost</serverAddress>
+    <serverPort>65534</serverPort>
+    <handlersAmount>2</handlersAmount>
+    <handlerMaxConnections>100</handlerMaxConnections>
+</serverConfig>
