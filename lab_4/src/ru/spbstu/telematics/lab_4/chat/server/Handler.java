@@ -181,7 +181,7 @@ public class Handler extends Thread implements Runnable {
     * @param toController - флаг,
     * указывающий предавать в контроллер или в обработчик.
     */
-	public synchronized void message(ChatMessage message, boolean toController) {
+	public void message(ChatMessage message, boolean toController) {
 	   if(toController)
 	      controller.tranferMessage(message);
 	   else {
@@ -194,7 +194,7 @@ public class Handler extends Thread implements Runnable {
 	/**
 	 * Метод для получения идентификатора обработчика.
 	 */
-	public synchronized int getHandlerId() {
+	public int getHandlerId() {
 	   return id;
 	}
 	

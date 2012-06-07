@@ -89,7 +89,7 @@ public class Controller {
 	/**
 	 * Метод трансфера сообщения.
 	 */
-	public synchronized void tranferMessage(ChatMessage message) {
+	public void tranferMessage(ChatMessage message) {
 	   synchronized (transferMessageQueueMutex) {
 	      transferMessageQueue.add(message);
       }
