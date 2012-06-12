@@ -1,0 +1,11 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+public interface IDAO<Type> {
+
+	public void add(Type typeDTO);
+	public void update(Type typeDTO);
+	public void delete(Type typeDTO);
+	public Type get(Long id);
+	public List<Type> getAll();
+	
+}

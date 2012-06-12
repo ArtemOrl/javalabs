@@ -1,0 +1,39 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import java.util.List;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO;
+
+public class FamilyDAO implements IFamilyDAO {
+
+	@Override
+	public void addFamily(FamilyDTO family) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateFamily(FamilyDTO family) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteFamily(FamilyDTO family) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public FamilyDTO getFamily(long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<FamilyDTO> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

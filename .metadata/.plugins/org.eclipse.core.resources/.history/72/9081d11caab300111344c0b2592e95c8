@@ -1,0 +1,7 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+public class IDAO<T> {
+
+	public void add(T dto);
+	
+}

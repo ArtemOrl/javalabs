@@ -1,0 +1,12 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO;
+
+public interface IStyleDAO {
+	
+	public void addStyle(StyleDTO style);
+	public void updateStyle(StyleDTO style);
+	public void deleteStyle(StyleDTO style);
+	public StyleDTO getStyle(long id);
+	
+}

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<context:annotation-config/>                                                                                                                                                                
+                                                                                                                                                                                                
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor"/>                                                                                                                                                                                   
+              
+    <bean name="DAO" class="main.java.ru.spbstu.telematics.simonenko.model.DAO">
+    	<property name="template" ref="hibernateTemplate"/>
+    </bean>
+    
+    <bean name="classesService" class="main.java.ru.spbstu.telematics.simonenko.model.ClassDAO"/>
+    <bean name="classStylesService" class="main.java.ru.spbstu.telematics.simonenko.model.ClassStyleDAO"/>
+    <bean name="familiesService" class="main.java.ru.spbstu.telematics.simonenko.model.FamilyDAO"/>
+    <bean name="objectsService" class="main.java.ru.spbstu.telematics.simonenko.model.ObjectDAO"/>
+    <bean name="stylesService" class="main.java.ru.spbstu.telematics.simonenko.model.StyleDAO"/>
+    
+    <bean name="indexController" class="main.java.ru.spbstu.telematics.simonenko.web.controller.IndexController">
+    	<property name="classesService" ref="classesService"/>
+    	<property name="classStylesService" ref="classStylesService"/>
+    	<property name="familiesService" ref="familiesService"/>
+    	<property name="objectsService" ref="objectsService"/>
+    	<property name="stylesService" ref="stylesService"/>
+    </bean>          
+                
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">                                                                                                  
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>                                                                                                                        
+        <property name="url" value="jdbc:mysql://127.5.218.1:3306/javaweb"/>                                                                                                                  
+        <property name="username" value="admin"/>                                                                                                                                                
+        <property name="password" value="fcMZQWKqHSRI"/>                                                                                                                                                
+    </bean>                                                                                                                                                                                     
+                                                                                                                                                                                                
+                                                                                                                                                                                                
+    <bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"                                                                              
+          id="sessionFac">                                                                                                                                                                      
+        <property name="dataSource" ref="dataSource"/>                                                                                                                                          
+        <property name="annotatedClasses">                                                                                                                                                      
+            <list>                                                                                                                                                                              
+                <value>my.example.entity.User</value>                                                                                                                                           
+            </list>                                                                                                                                                                             
+        </property>                                                                                                                                                                             
+        <property name="hibernateProperties">                                                                                                                                                   
+            <value>                                                                                                                                                                             
+                hibernate.dialect=org.hibernate.dialect.MySQLInnoDBDialect                                                                                                                      
+                hibernate.show_sql=true                                                                                                                                                         
+            </value>                                                                                                                                                                            
+        </property>                                                                                                                                                                             
+    </bean>                                                                                                                                                                                     
+                                                                                                                                                                                                
+    <bean name="txManager" class="org.springframework.orm.hibernate3.HibernateTransactionManager">                                                                                              
+        <property name="sessionFactory" ref="sessionFactory"/>                                                                                                                                  
+    </bean>                                                                                                                                                                                     
+                                                                                                                                                                                                
+    <tx:annotation-driven transaction-manager="txManager"/>                                                                                                                                     
+                                                                                                                                                                                                
+    <bean name="hibernateTemplate" class="org.springframework.orm.hibernate3.HibernateTemplate">                                                                                                
+        <property name="sessionFactory" ref="sessionFactory"/>                                                                                                                                  
+    </bean>                                          
+                                                                                                                                                                                                
+</beans>

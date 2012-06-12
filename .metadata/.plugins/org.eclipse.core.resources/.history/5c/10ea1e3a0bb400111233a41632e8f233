@@ -1,0 +1,46 @@
+package main.java.ru.spbstu.telematics.simonenko.web.controller;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dao.IDAO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.ClassDTO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.ClassStyleDTO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.ObjectDTO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+
+@Controller
+public class IndexController {
+	
+	@Autowired
+	IDAO<ClassDTO> classesService;
+	
+	@Autowired
+	IDAO<ClassStyleDTO> classStylesService;
+	
+	@Autowired
+	IDAO<FamilyDTO> familiesService;
+	
+	@Autowired
+	IDAO<ObjectDTO> objectsService;
+	
+	@Autowired
+	IDAO<StyleDTO> stylesService;
+	
+	@RequestMapping("/")
+	public String rootRedirect() {
+		return "redirect:index";
+	}
+	
+	@RequestMapping("/index")
+	public ModelAndView get() {
+		ModelAndView mav = new ModelAndView("objectsForm");
+		//mav.addObject("objects", objectsService.getAll(ObjectDTO.class));
+		return mav;
+	}
+	
+}

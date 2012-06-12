@@ -1,0 +1,7 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+public interface IFamilyDAO {
+
+	public saveFamily(FamilyDAO family);
+	
+}

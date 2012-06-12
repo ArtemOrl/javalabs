@@ -1,0 +1,16 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dto;
+
+import javax.persistence.*;
+
+@Entity
+@Table(name = "T_STYLE")
+public class StyleDTO {
+
+	@Id
+	@Column(name = "style_id")
+	private Long id;
+	private Long familyId;
+	private boolean isMandatory;
+	private boolean isMultiple;
+	
+}

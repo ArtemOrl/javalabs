@@ -1,0 +1,38 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import java.util.List;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO;
+
+public class StyleDAO implements IStyleDAO {
+
+	@Override
+	public void addStyle(StyleDTO style) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void updateStyle(StyleDTO style) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void deleteStyle(StyleDTO style) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public StyleDTO getStyle(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<StyleDTO> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

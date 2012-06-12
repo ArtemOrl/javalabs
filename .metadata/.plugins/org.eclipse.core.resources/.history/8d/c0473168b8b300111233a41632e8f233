@@ -1,0 +1,8 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dto;
+
+public class ClassStyleDTO {
+
+	private Long classId;
+	private Long styleId;
+	
+}

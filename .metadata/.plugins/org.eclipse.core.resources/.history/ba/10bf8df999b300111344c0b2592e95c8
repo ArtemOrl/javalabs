@@ -1,0 +1,10 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+public class FamilyDAO implements IFamilyDAO {
+
+	@Override
+	public void saveFamily(FamilyDTO family) {
+		
+	}
+
+}

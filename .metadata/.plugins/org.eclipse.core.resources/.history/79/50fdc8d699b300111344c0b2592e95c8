@@ -1,0 +1,12 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO;
+
+public interface IFamilyDAO {
+
+	public void addFamily(FamilyDTO family);
+	public void editFamily(FamilyDTO family);
+	public void deleteFamily(FamilyDTO family);
+	public FamilyDTO getFamily(long id);
+	
+}

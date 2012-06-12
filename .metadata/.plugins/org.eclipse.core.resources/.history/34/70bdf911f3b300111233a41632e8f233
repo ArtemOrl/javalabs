@@ -1,0 +1,21 @@
+package main.java.ru.spbstu.telematics.simonenko.model.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dao.IDAO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.ClassDTO;
+
+public class ClassesService {
+
+	private IDAO<ClassDTO> classDAO;
+	
+	@Autowired
+	public void setDAO(IDAO<ClassDTO> classDAO) {
+		this.classDAO = classDAO;
+	}
+	
+	public void add(ClassDTO classDTO) {
+		classDAO.add(classDTO);
+	}
+	
+}

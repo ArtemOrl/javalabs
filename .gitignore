@@ -1,0 +1,10 @@
+.settings/
+bin/*
+.classpath
+.project
+*.class
+*.report*
+*.odt
+*.odg
+*.jpg
+target

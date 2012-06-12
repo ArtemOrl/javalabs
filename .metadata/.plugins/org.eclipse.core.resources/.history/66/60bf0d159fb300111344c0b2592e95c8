@@ -1,0 +1,20 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dto;
+
+import javax.persistence.*;
+
+
+@Entity
+@Table(name = "T_FAMILY")
+public class FamilyDTO {
+
+	@Id
+	@Column(name = "family_id")
+	private Long id;
+	
+	@Column(name = "name")
+	private String name;
+	
+	@Column(name = "description")
+	private String description;
+	
+}

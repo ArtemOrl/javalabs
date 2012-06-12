@@ -1,0 +1,11 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO;
+
+public class StyleDAO extends DAO<StyleDTO> {
+	
+	public StyleDAO get(Long id) {
+		return get(StyleDAO.class, id);
+	}
+	
+}

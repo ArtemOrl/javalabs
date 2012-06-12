@@ -1,0 +1,15 @@
+package main.java.ru.spbstu.telematics.simonenko.web.controller;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dao.IDAO;
+import main.java.ru.spbstu.telematics.simonenko.model.dto.ClassDTO;
+
+import org.springframework.stereotype.Controller;
+
+
+@Controller
+public class IndexController {
+	
+	IDAO<ClassDTO> classService;
+	IDAO<ClassStyleDTO> classStyleService;  
+	
+}

@@ -1,0 +1,37 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import java.util.List;
+
+public class DAO<Type> implements IDAO<Type> {
+
+	@Override
+	public void add(Type typeDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void update(Type typeDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Type typeDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Type get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Type> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

@@ -1,0 +1,13 @@
+package main.java.ru.spbstu.telematics.simonenko.web;
+
+// make web with Spring DI
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/index")
+
+public class AppController {
+
+}

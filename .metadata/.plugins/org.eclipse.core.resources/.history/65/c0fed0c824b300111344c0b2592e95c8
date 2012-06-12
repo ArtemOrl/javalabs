@@ -1,0 +1,10 @@
+package main.java.ru.spbstu.telematics.simonenko.web;
+
+import org.springframework.stereotype.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+@RequestMapping("/index")
+public class Controller {
+
+}

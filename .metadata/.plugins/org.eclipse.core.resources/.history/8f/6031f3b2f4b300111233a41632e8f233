@@ -1,0 +1,9 @@
+package main.java.ru.spbstu.telematics.simonenko.model.service;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dto.ClassStyleDTO;
+
+public class ClassStylesService {
+
+	private IDAO<ClassStyleDTO> classStyleDTO;
+	
+}

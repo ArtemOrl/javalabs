@@ -1,0 +1,36 @@
+1339333285434	Rename resource 'springtest-servlet.xml'
+1339334252855	Delete element
+1339334255907	Delete element
+1339334339361	Delete element
+1339334385365	Delete element
+1339334897521	Delete elements
+1339344129378	Rename resource 'dispatcher-servlet.xml'
+1339349957520	Move compilation unit
+1339350441490	Delete element
+1339357230592	Rename type 'Controller'
+1339359980068	Rename resource 'spring-test-servlet.xml'
+1339399972296	Delete element
+1339399986843	Move compilation unit
+1339399990831	Move compilation unit
+1339399994163	Delete element
+1339400253099	Rename type 'ClassDAO'
+1339400263480	Rename type 'ClassStyleDAO'
+1339400271335	Rename type 'FamilyDAO'
+1339400282578	Rename type 'ObjectDAO'
+1339400290810	Rename type 'StyleDAO'
+1339400564914	Rename type 'Family'
+1339402734854	Delete element
+1339413758164	Delete element
+1339414983657	Delete elements
+1339420873445	Rename resource 'application-context.xml'
+1339426274750	Delete element
+1339426280121	Delete element
+1339426305922	Delete element
+1339429961611	Rename package 'main.java.ru.spbstu.telematics.simonenko.web.controllers'
+1339432335345	Delete element
+1339439935356	Delete element
+1339448975482	Move compilation unit
+1339448981865	Delete element
+1339449003167	Rename type 'ClassesService'
+1339453158690	Delete element
+1339496693831	Move folder

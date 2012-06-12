@@ -1,0 +1,55 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.orm.hibernate3.HibernateTemplate;
+import org.springframework.transaction.annotation.Transactional;
+
+import main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO;
+
+public class FamilyDAO implements IFamilyDAO {
+
+	private HibernateTemplate template;
+	
+	@Autowired
+	public void setTemplate(HibernateTemplate template) {
+		this.template = template;
+	}
+	
+	@Override
+	@Transactional
+	public void addFamily(FamilyDTO family) {
+		template.save(family);
+		template.flush();
+	}
+
+	@Override
+	@Transactional
+	public void updateFamily(FamilyDTO family) {
+		template.saveOrUpdate(family);
+		template.flush();
+	}
+
+	@Override
+	@Transactional
+	public void deleteFamily(FamilyDTO family) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	@Transactional
+	public FamilyDTO getFamily(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	@Transactional
+	public List<FamilyDTO> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

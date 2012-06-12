@@ -1,0 +1,40 @@
+package main.java.ru.spbstu.telematics.simonenko.model.dao;
+
+import java.util.List;
+
+import org.springframework.orm.hibernate3.HibernateTemplate;
+
+public class DAO<Type> implements IDAO<Type> {
+
+	private HibernateTemplate template;
+	
+	@Override
+	public void add(Type typeDTO) {
+		template
+	}
+
+	@Override
+	public void update(Type typeDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void delete(Type typeDTO) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public Type get(Long id) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Type> getAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
