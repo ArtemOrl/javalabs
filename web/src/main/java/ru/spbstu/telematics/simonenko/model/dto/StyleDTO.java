@@ -50,4 +50,5 @@ public class StyleDTO {
 	public void setMultiple(boolean isMultiple) {
 		this.isMultiple = isMultiple;
 	}
+
 }

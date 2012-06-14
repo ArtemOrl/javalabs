@@ -5,12 +5,24 @@ import javax.persistence.*;
 @Entity
 @Table(name = "T_CLASS_STYLE")
 public class ClassStyleDTO {
+	
+	@Id
+	@Column(name = "class_style_id")
+	private Long id;
 
 	@Column(name = "class_id")
 	private Long classId;
 	
 	@Column(name = "style_id")
 	private Long styleId;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 
 	public Long getClassId() {
 		return classId;
