@@ -8,6 +8,7 @@ public class ClassDTO {
 
 	@Id
 	@Column(name = "class_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
 	@Column(name = "name")

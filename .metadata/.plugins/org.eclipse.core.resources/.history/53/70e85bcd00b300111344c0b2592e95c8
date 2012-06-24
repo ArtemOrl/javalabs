@@ -1,7 +1,0 @@
-package main.java;
-
-import org.springframework.web.servlet.mvc.AbstractController;
-
-public class SpringTest extends AbstractController {
-
-}

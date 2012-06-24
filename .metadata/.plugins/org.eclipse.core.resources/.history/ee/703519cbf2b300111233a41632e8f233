@@ -1,7 +1,0 @@
-package main.java.ru.spbstu.telematics.simonenko.model.service;
-
-public class ClassesService {
-
-	private IDAO<ClassDTO> classDAO;
-	
-}

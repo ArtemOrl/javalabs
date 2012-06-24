@@ -1,9 +1,0 @@
-package main.java.ru.spbstu.telematics.simonenko.web.controllers;
-
-import org.springframework.stereotype.Controller;
-
-
-@Controller
-public class IndexController {
-
-}

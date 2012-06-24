@@ -1,5 +1,299 @@
+html
+{
+	height: 100%;
+}
+
 body 
 {
-   background-color: #FFAE01;
-   padding: 10px;
+   	height: 100%;
+   	padding-top: 10px;
+   	background-color: #DCE3E8;
 }
+
+#main
+{
+	overflow: auto;
+	margin-left: 15%;
+	margin-right: 15%;
+	min-height: 100%;
+	padding-bottom: 5%;
+	box-shadow: 0 0 5px #115;
+	background-color: #F5F5F5;
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+}
+
+#main #head
+{
+	padding: 20px;
+	color: #004475;
+	text-align: right;
+	font: 28pt 'Fredericka the Great';
+	border-bottom: solid 1px #004475;
+}
+
+#body #menu
+{
+	width: 28%;
+	float: left;
+	margin-top: 60px;
+	background-color: #E8E8E8;
+	border-right: solid 1px #004475;
+}
+
+#menu .tab
+{
+	color: #004475;
+	padding: 5px 0px 5px 15px;
+	font: 20pt 'Fredericka the Great';
+}
+
+#menu .tab.hover,
+#nav-search #nav-search-button.hover,
+#nav-body #nav-body-buttons .hover,
+#nav-body #nav-body-buttons .nav-body-scroll.hover,
+#nav-body-elems #nav-body-elem-header .hover
+{
+	color: #1B2F40;
+	cursor: pointer;
+	background-color: #F0F3F5;
+	text-decoration: underline;
+}
+
+#menu .tab.selected
+{
+	color: #DCE3E8;
+	background-color: #004475;
+}
+
+#body #navigation
+{
+	float: left;
+	width: 71%;
+}
+
+#navigation #nav-search
+{
+	width: 50%;
+	float: right;
+	padding: 10px 5px 5px 5px;
+	background-color: #E8E8E8;
+	border-bottom: solid 1px #004475;
+}	
+
+#nav-search #nav-search-param-field
+{
+	width: 80%;
+	float: left;
+}
+
+#nav-search #nav-search-button
+{
+	float: right;
+	color: #004475;
+	font: 13pt 'Fredericka the Great';
+}
+
+#navigation #nav-body
+{
+	margin-top: 55px;
+	margin-left: 10px;
+}
+
+#nav-body #nav-body-content
+{
+	min-height: 250px;
+}
+
+#nav-body #nav-body-elems
+{
+}
+ 
+#nav-body #nav-body-buttons
+{
+	height: 32px;
+	padding: 5px;
+	color: #004475;
+	background-color: #E8E8E8;
+	border-top: solid 1px #004475;
+	border-bottom: solid 1px #004475;
+	font: 13pt 'Fredericka the Great';
+}
+
+#nav-body-buttons #nav-body-scroll
+{
+	float: left;
+}
+
+#nav-body-buttons .nav-body-scroll
+{
+	float: left;
+	padding: 5px;
+	cursor: default;
+}
+
+#nav-body-buttons .nav-body-scroll.blocked
+{
+	float: left;
+	padding: 5px;
+	color: #004475;
+}
+
+#nav-body-buttons #nav-body-scroll-down
+{
+	margin-left: 5px;
+	border-left: solid 1px #ADB4BA;
+}
+
+#nav-body-buttons #nav-body-add-button
+{
+	float: right;
+	padding: 5px;
+	color: #004475;
+	font: 13pt 'Fredericka the Great';
+}
+
+#nav-body-content #nav-body-message,
+#nav-body-add-form #nav-body-add-form-message
+{
+	color: #ADB4BA;
+	text-align: center;
+	font: 15pt 'Fredericka the Great';
+}
+
+#nav-body-elems #nav-body-elem
+{
+	min-height: 37px;
+	margin-bottom: 5px;
+	padding: 5px 10px 5px 10px;
+}
+
+#nav-body-elems #nav-body-elem-header
+{
+	height: 35px;
+	color: #004475;
+	border-radius: 5px;
+	background-color: #E8E8E8;
+	font: 14pt 'Fredericka the Great';
+	box-shadow: 0 0 5px #115;
+	z-index: 2 !important;
+	position: relative; 
+}
+
+#nav-body-elem #nav-body-elem-header-name
+{
+	width: 70%;
+	float: left;
+	height: 29px;
+	margin-left: 2%;
+	padding: 6px 6px 0 6px;
+	border-left: solid 1px #ADB4BA;
+}
+
+#nav-body-elem #nav-body-elem-header-edit
+{
+	width: 10%;
+	float: left;
+	height: 29px;
+	text-align: center;
+	padding: 6px 6px 0 6px;
+	border-left: solid 1px #ADB4BA;
+}
+
+#nav-body-elem #nav-body-elem-header-delete
+{
+	width: 10%;
+	float: left;
+	height: 29px;
+	text-align: center;
+	padding: 6px 6px 0 6px;
+	border-left: solid 1px #ADB4BA;
+	border-right: solid 1px #ADB4BA;
+}
+
+#nav-body-elem #nav-body-elem-body
+{
+	margin-left: 3%;
+	margin-right: 3%;
+	margin-top: -5px;
+	background-color: white;
+	box-shadow: 0 0 5px #115;
+	padding: 20px 10px 10px 20px;
+	border-bottom-left-radius: 5px;
+	border-bottom-right-radius: 5px;
+	z-index: 1 !important;
+	position: relative;
+}
+
+#nav-body-elem #nav-body-elem-body .nav-body-elem-field-name
+{
+	color: #004475;
+	font: bold 12pt 'Fredericka the Great';
+	border-bottom: solid 2px #004475
+}
+
+#nav-body-elem #nav-body-elem-body .nav-body-elem-field-value
+{
+	color: #004475;
+	padding: 5px 0 0 10px;
+	font: 12pt 'Fredericka the Great';
+	border-left: dash 2px #004475
+}
+
+#nav-body-elem #nav-body-elem-body .nav-body-elem-field-value.hover
+{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#nav-search #nav-search-button.blocked,
+#nav-body #nav-body-buttons .blocked,
+#nav-body #nav-body-buttons .nav-body-scroll.blocked,
+#nav-body-elems #nav-body-elem-header .blocked
+{
+	color: #ADB4BA;
+	cursor: default;
+}
+
+#nav-body #nav-body-add-form
+{
+	width: 50%;
+	float: right;
+	padding: 5px 10px 5px 10px;
+	background-color: #E8E8E8;
+	border-bottom: solid 1px #004475
+}
+
+#nav-body-add-form .nav-body-add-form-name
+{
+	color: #004475;
+	font: 13pt 'Fredericka the Great';
+}
+
+#nav-body-add-form #nav-body-add-form-button
+{
+	color: #004475;
+	text-align: right;
+	font: 13pt 'Fredericka the Great';
+}
+
+#nav-body-add-form #nav-body-add-form-button.hover
+{
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#nav-body-add-form input.nav-body-add-form-value 
+{
+	width: 100%;
+}
+
+#nav-body-add-form textarea.nav-body-add-form-value 
+{
+	width: 99%;
+	resize: none;
+	height: 70px;
+}
+
+
+

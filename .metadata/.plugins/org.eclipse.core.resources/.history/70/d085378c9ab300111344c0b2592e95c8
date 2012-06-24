@@ -1,9 +1,0 @@
-package main.java.ru.spbstu.telematics.simonenko.model.dao;
-
-import main.java.ru.spbstu.telematics.simonenko.model.dto.ClassDTO;
-
-public interface IClassDAO {
-
-	public void addClass(ClassDTO clazz);
-	
-}

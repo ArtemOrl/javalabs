@@ -1,7 +1,0 @@
-package main.java.ru.spbstu.telematics.simonenko.model.dao;
-
-public interface IClassStyleDAO {
-
-	public void addClassStyle(ClassStyleDTO classStyle);
-	
-}

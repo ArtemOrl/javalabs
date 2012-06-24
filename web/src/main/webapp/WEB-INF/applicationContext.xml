@@ -26,24 +26,22 @@
     <bean name="objectsService" class="main.java.ru.spbstu.telematics.simonenko.model.dao.ObjectDAO" parent="DAO"/>
     <bean name="stylesService" class="main.java.ru.spbstu.telematics.simonenko.model.dao.StyleDAO" parent="DAO"/>
 
-    <bean name="indexController" class="main.java.ru.spbstu.telematics.simonenko.web.controller.IndexController">
+    <bean name="indexPageDataBuilder" class="main.java.ru.spbstu.telematics.simonenko.model.IndexPageDataBuilder">
+    	<property name="pageElemsAmount" value="5"/>
         <property name="classesService" ref="classesService"/>
         <property name="classStylesService" ref="classStylesService"/>
         <property name="familiesService" ref="familiesService"/>
         <property name="objectsService" ref="objectsService"/>
         <property name="stylesService" ref="stylesService"/>
     </bean>
+    
+    <bean name="indexController" class="main.java.ru.spbstu.telematics.simonenko.web.controller.IndexController">
+    	<property name="builder" ref="indexPageDataBuilder"/>
+    </bean>
 
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
         <property name="jndiName" value="java:jboss/datasources/MysqlDS"/>
     </bean>
-
-    <!--<bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://${OPENSHIFT_DB_HOST}:${OPENSHIFT_DB_PORT}/${OPENSHIFT_APP_NAME}"/>
-        <property name="username" value="${OPENSHIFT_DB_USERNAME}"/>
-        <property name="password" value="${OPENSHIFT_DB_PASSWORD}"/>
-    </bean>!-->
 
     <bean name="sessionFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>

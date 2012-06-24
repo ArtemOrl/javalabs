@@ -2,7 +2,6 @@
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="javax.persistence.criteria.CriteriaBuilder"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.IDTO"/>
-<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
 <fullyQualifiedTypeName name="java.lang.annotation.Annotation"/>
 <fullyQualifiedTypeName name="java.lang.SuppressWarnings"/>
 <fullyQualifiedTypeName name="javax.persistence.Id"/>
@@ -20,19 +19,30 @@
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.service.StylesService"/>
 <fullyQualifiedTypeName name="org.springframework.beans.factory.annotation.Autowired"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.IDAO"/>
-<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.ClassDTO"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.ClassStyleDTO"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.DAO"/>
-<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO"/>
-<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.ObjectDTO"/>
-<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO"/>
-<fullyQualifiedTypeName name="java.util.List"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.ClassDAO"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.ClassStyleDAO"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.StyleDAO"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.ObjectDAO"/>
 <fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dao.FamilyDAO"/>
-<fullyQualifiedTypeName name="java.util.logging.Logger"/>
 <fullyQualifiedTypeName name="java.util.logging.Level"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.ObjectDTO"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="java.util.logging.Logger"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.PathVariable"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.pojo.ObjectPOJO"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.ResponseBody"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.pojo.StylePOJO"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.pojo.FamilyPOJO"/>
+<fullyQualifiedTypeName name="org.springframework.transaction.annotation.Transactional"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.dto.ClassDTO"/>
+<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestBody"/>
+<fullyQualifiedTypeName name="main.java.ru.spbstu.telematics.simonenko.model.pojo.ClassPOJO"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
 </qualifiedTypeNameHistroy>

@@ -3,19 +3,22 @@ package main.java.ru.spbstu.telematics.simonenko.model.dto;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "T_CLASS_STYLE")
-public class ClassStyleDTO {
-	
+@Table(name = "T_OBJECT_VALUE")
+public class ObjectValueDTO {
+
 	@Id
-	@Column(name = "class_style_id")
+	@Column(name = "object_value_id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-
-	@Column(name = "class_id")
-	private Long classId;
+	
+	@Column(name = "object_id")
+	private Long objectId;
 	
 	@Column(name = "style_id")
 	private Long styleId;
+	
+	@Column(name = "value")
+	private String value;
 
 	public Long getId() {
 		return id;
@@ -25,12 +28,12 @@ public class ClassStyleDTO {
 		this.id = id;
 	}
 
-	public Long getClassId() {
-		return classId;
+	public Long getObjectId() {
+		return objectId;
 	}
 
-	public void setClassId(Long classId) {
-		this.classId = classId;
+	public void setObjectId(Long objectId) {
+		this.objectId = objectId;
 	}
 
 	public Long getStyleId() {
@@ -40,5 +43,15 @@ public class ClassStyleDTO {
 	public void setStyleId(Long styleId) {
 		this.styleId = styleId;
 	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+	
+	
 	
 }

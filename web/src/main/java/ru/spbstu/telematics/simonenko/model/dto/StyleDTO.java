@@ -8,7 +8,11 @@ public class StyleDTO {
 	
 	@Id
 	@Column(name = "style_id")
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
+	
+	@Column(name = "name")
+	private String name;
 	
 	@Column(name = "family_id")
 	private Long familyId;
@@ -49,6 +53,14 @@ public class StyleDTO {
 
 	public void setMultiple(boolean isMultiple) {
 		this.isMultiple = isMultiple;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

@@ -13,5 +13,4 @@ public class ClassDAO extends DAO<ClassDTO> {
 	public List<ClassDTO> getAll() {
 		return getAll(ClassDTO.class);
 	}
-	
 }
