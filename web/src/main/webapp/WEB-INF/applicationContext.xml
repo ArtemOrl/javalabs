@@ -25,18 +25,20 @@
     <bean name="familiesService" class="main.java.ru.spbstu.telematics.simonenko.model.dao.FamilyDAO" parent="DAO"/>
     <bean name="objectsService" class="main.java.ru.spbstu.telematics.simonenko.model.dao.ObjectDAO" parent="DAO"/>
     <bean name="stylesService" class="main.java.ru.spbstu.telematics.simonenko.model.dao.StyleDAO" parent="DAO"/>
+    <bean name="objectValuesService" class="main.java.ru.spbstu.telematics.simonenko.model.dao.ObjectValueDAO" parent="DAO"/>
 
-    <bean name="indexPageDataBuilder" class="main.java.ru.spbstu.telematics.simonenko.model.IndexPageDataBuilder">
+    <bean name="dataBuilder" class="main.java.ru.spbstu.telematics.simonenko.model.DataBuilder">
     	<property name="pageElemsAmount" value="5"/>
         <property name="classesService" ref="classesService"/>
         <property name="classStylesService" ref="classStylesService"/>
         <property name="familiesService" ref="familiesService"/>
         <property name="objectsService" ref="objectsService"/>
         <property name="stylesService" ref="stylesService"/>
+        <property name="objectValuesService" ref="objectValuesService"/>
     </bean>
     
-    <bean name="indexController" class="main.java.ru.spbstu.telematics.simonenko.web.controller.IndexController">
-    	<property name="builder" ref="indexPageDataBuilder"/>
+    <bean name="mainController" class="main.java.ru.spbstu.telematics.simonenko.web.controller.MainController">
+    	<property name="builder" ref="dataBuilder"/>
     </bean>
 
     <bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
@@ -52,6 +54,7 @@
                 <value>main.java.ru.spbstu.telematics.simonenko.model.dto.FamilyDTO</value>
                 <value>main.java.ru.spbstu.telematics.simonenko.model.dto.ObjectDTO</value>
                 <value>main.java.ru.spbstu.telematics.simonenko.model.dto.StyleDTO</value>
+                <value>main.java.ru.spbstu.telematics.simonenko.model.dto.ObjectValueDTO</value>
             </list>
         </property>
         <property name="hibernateProperties">

@@ -7,4 +7,5 @@ bin/*
 *.odt
 *.odg
 *.jpg
+.metadata*
 target

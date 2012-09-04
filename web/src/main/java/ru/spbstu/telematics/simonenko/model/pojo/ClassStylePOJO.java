@@ -12,6 +12,12 @@ public class ClassStylePOJO {
 		stylePOJO = new StylePOJO();
 	}
 	
+	public ClassStylePOJO(Long id, ClassPOJO classPOJO, StylePOJO stylePOJO) {
+		this.id = id;
+		this.classPOJO = classPOJO;
+		this.stylePOJO = stylePOJO;
+	}
+	
 	public ClassStylePOJO(ClassStylePOJO other) {
 		id = new Long(other.id);
 		classPOJO = new ClassPOJO(other.classPOJO);

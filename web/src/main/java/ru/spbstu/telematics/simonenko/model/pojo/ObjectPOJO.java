@@ -48,6 +48,4 @@ public class ObjectPOJO {
 		this.classPOJO = classPOJO;
 	}
 	
-	
-	
 }

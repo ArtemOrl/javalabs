@@ -14,6 +14,15 @@ public class ObjectValuePOJO {
 		value = "";
 	}
 	
+	public ObjectValuePOJO(Long id, ObjectPOJO objectPOJO, 
+			StylePOJO stylePOJO, String value)
+	{
+		this.id = id;
+		this.stylePOJO = stylePOJO;
+		this.objectPOJO = objectPOJO;
+		this.value = value;
+	}
+	
 	public ObjectValuePOJO(ObjectValuePOJO other) {
 		id = new Long(other.id);
 		objectPOJO = new ObjectPOJO(other.objectPOJO);
